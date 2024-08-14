@@ -1,0 +1,2 @@
+# Kafka
+alias k="kafkactl"
