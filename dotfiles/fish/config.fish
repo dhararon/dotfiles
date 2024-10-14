@@ -14,13 +14,13 @@ starship init fish | source
 
 alias cd="z"
 
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-    and not set -q TMUX
-
-    and set -q SSH_TTY
-    tmux attach-session -t ssh_tmux; or tmux new-session -s ssh_tmux
-  end
-
 # Sign commits git gitlab
 export GPG_TTY=$(tty)
+
+# tmux
+
+if type -q tmux
+    if not test -n "$TMUX"
+        tmux attach-session -t default; or tmux new-session -s default
+    end
+end
