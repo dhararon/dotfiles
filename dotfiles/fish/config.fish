@@ -1,3 +1,8 @@
+# ENVIRONMENT VARIABLES
+# Sign commits git gitlab
+export GPG_TTY=$(tty)
+export TERRAGRUNT_TFPATH=tofu
+
 if status is-interactive
   cd $HOME
 end
@@ -9,18 +14,27 @@ set -gx PATH $HOME/.cargo/bin $PATH
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
-zoxide init fish | source
-starship init fish | source
-
-alias cd="z"
-
-# Sign commits git gitlab
-export GPG_TTY=$(tty)
-
 # tmux
-
 if type -q tmux
     if not test -n "$TMUX"
         tmux attach-session -t default; or tmux new-session -s default
     end
 end
+
+# Generated for envman. Do not edit.
+test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
+
+# Alias
+alias cd="z"
+alias tg="terragrunt"
+alias tgi="terragrunt init"
+alias tgp="terragrunt plan"
+alias cn="changie new"
+alias cb="changie batch"
+alias cba="changie batch auto"
+alias cm="changie marge"
+
+# RUN SCRIPTS
+zoxide init fish | source
+starship init fish | source
+rvm default
