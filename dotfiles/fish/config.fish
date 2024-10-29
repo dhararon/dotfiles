@@ -32,7 +32,8 @@ alias tgp="terragrunt plan"
 alias cn="changie new"
 alias cb="changie batch"
 alias cba="changie batch auto"
-alias cm="changie marge"
+alias cm="changie merge"
+alias gpt="git push --tags"
 
 # RUN SCRIPTS
 zoxide init fish | source
