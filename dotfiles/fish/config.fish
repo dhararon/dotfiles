@@ -37,4 +37,3 @@ alias cm="changie marge"
 # RUN SCRIPTS
 zoxide init fish | source
 starship init fish | source
-rvm default
